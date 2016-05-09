@@ -1,5 +1,5 @@
-FROM lewisw/docker-test-runner
-MAINTAINER Lewis Wright <lewis@allwrightythen.com>
+FROM vivait/docker-test-runner
+MAINTAINER Viva IT <enquiry@vivait.co.uk>
 
 # Create the structure
 WORKDIR /project
