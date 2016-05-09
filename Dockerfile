@@ -1,5 +1,5 @@
-FROM lewisw/ansible-symfony-playbook
-MAINTAINER Lewis Wright <lewis@allwrightythen.com>
+FROM vivait/ansible-symfony-playbook
+MAINTAINER Viva IT <enquiry@vivait.co.uk>
 
 # Create the structure
 WORKDIR /project
