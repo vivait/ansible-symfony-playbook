@@ -1,4 +1,4 @@
-FROM vivait/docker-test-runner
+FROM docker.vivait.co.uk/docker-test-runner
 MAINTAINER Viva IT <enquiry@vivait.co.uk>
 
 # Create the structure

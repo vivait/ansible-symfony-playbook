@@ -28,6 +28,7 @@
   vars_files:
     - ../app/config/parameters.yml.dist
     - vars/apache.yml
+    - vars/apache-php-fpm.yml
     - vars/packages.yml
     - vars/ntp.yml
     - vars/xdebug.yml
@@ -41,6 +42,7 @@
     - { role: apache-extra, sudo: yes }
     
     - { role: geerlingguy.php, sudo: yes }
+    - { role: geerlingguy.apache-php-fpm, sudo: yes }
     - { role: geerlingguy.composer, sudo: yes }
     - { role: geerlingguy.php-xdebug, sudo: yes, when: 'php_xdebug|default(false)|bool' }
     

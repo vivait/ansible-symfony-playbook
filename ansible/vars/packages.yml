@@ -7,18 +7,21 @@ system_packages:
   - gcc
   - curl
 system_repos:
-  - ppa:ondrej/php5-5.6
+  - ppa:ondrej/php
+  - ppa:ondrej/apache2
 php_packages:
-  - php5
-  - php5-cli
-  - php5-curl
-  - php5-intl
-  - php5-common
-  - php5-mysql
-  - php5-gd
-  - php5-dev
+  - php5.6
+  - php5.6-cli
+  - php5.6-curl
+  - php5.6-intl
+  - php5.6-common
+  - php5.6-mysql
+  - php5.6-gd
+  - php5.6-dev
+  - php5.6-mbstring
+  - php5.6-xsl
+  - php5.6-fpm
   # Needed for MySQL backup:
   - python-mysqldb
-  - php5-fpm
 java_packages:
   - openjdk-7-jre
