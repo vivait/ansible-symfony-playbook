@@ -1,5 +1,5 @@
-FROM vivait/ansible-symfony-playbook
-MAINTAINER Viva IT <enquiry@vivait.co.uk>
+FROM docker.vivait.co.uk/docker-test-runner
+MAINTAINER Viva IT Limited <enquiry@vivait.co.uk>
 
 # Create the structure
 WORKDIR /project
@@ -15,12 +15,17 @@ RUN /ansible_dependencies
 # Copy any files used in provisioning & provision
 COPY ansible ansible
 COPY app/config/parameters.yml.dist app/config/parameters.yml.dist
-RUN /apt_cacher leeroy.vivait.co.uk; /ansible_setup && /graceful_shutdown
+RUN /apt_cacher apt-cache.vivait.co.uk; /ansible_setup && /graceful_shutdown
 
 # Copy any composer files and pre-download them
+COPY vendor vendor
 COPY composer.json composer.lock ./
-RUN echo "${IP} leeroy.vivait.co.uk" >> /etc/hosts; /composer_setup
+RUN /composer_setup
 
 # Try and provision, so we can atleast cache
 COPY ./ ./
-RUN echo "${IP} leeroy.vivait.co.uk" >> /etc/hosts; /ansible_update && /graceful_shutdown
+
+USER root
+RUN /ansible_update && /graceful_shutdown
+
+RUN chown -R www-data:www-data ./
